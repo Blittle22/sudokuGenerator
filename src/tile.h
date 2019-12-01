@@ -3,16 +3,16 @@
 
 class Tile{
 
-friend class Row;
-friend class Column;
-friend class Grid;
-
 public:
     Tile();
     ~Tile();
     int get();
     void set(int);
+    
 private:
+    friend class Grid;
+    friend class Column;
+    friend class Row;
     int value;
 };
 #endif

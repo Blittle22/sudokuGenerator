@@ -2,14 +2,18 @@
 #define _ROW_H_
 #include <iostream>
 #include <vector>
+#include "tile.h"
 
 class Row{
+
 public:
     Row();
     ~Row();
-    std::vector<Tile> get();
-    void addCell();
+    Tile getCell(int);
+    void addCell(Tile);
+
 private:
+    friend class Tile;
     std::vector<Tile> rowValues;
 };
 #endif
