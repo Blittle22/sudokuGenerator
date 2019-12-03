@@ -8,9 +8,11 @@ class Row{
 
 public:
     Row();
+    Row(int);
     ~Row();
     Tile getCell(int);
-    void addCell(Tile);
+    void addCell();
+    void setCell(int,int);
 
 private:
     friend class Tile;

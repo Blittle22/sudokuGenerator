@@ -5,6 +5,7 @@ class Tile{
 
 public:
     Tile();
+    Tile(int);
     ~Tile();
     int get();
     void set(int);

@@ -5,6 +5,11 @@ Tile::Tile(){
     value = 0;
 };
 
+//Constructor with value
+Tile::Tile(int var){
+    value = var;
+}
+
 //Destructor
 Tile::~Tile(){};
 

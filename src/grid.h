@@ -3,23 +3,21 @@
 #include <iostream>
 #include <vector>
 #include "row.h"
-#include "column.h"
 
 class Grid{
 
 public:
     Grid();
     ~Grid();
-    Row getRow(int index);
-    Column getColumn(int index);
-    void addRow();
-    void addColumn();
-    
+    Row getRow(int);
+    void addRow(int);
+    void setRow(int,Row);
+    void build(int);
+    void fill();
+
 private:
     friend class Row;
-    friend class Column;
     friend class Tile;
     std::vector<Row> rows;
-    std::vector<Column> columns;
 };
 #endif
