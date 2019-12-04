@@ -31,14 +31,17 @@ void dancingLink::cover(struct Node *targetNode)
     struct Node column = dataNode.column;
     struct Node row = dataNode.row;
 
-    column.right.left = column.left;
-    column.left.right = column.right;
+    // Make the pointer skip the target node being input from the right and left
+    targetNode->left->right = targetNode->right; 
+    targetNode->right->left = targetNode->left;
 
-    for(Node row = column.down; row != column; row = row.down)
+    for(Node* nn = targetNode->down; nn != targetNode; nn = nn->down)
     {
-        for(Node rightNode = row.right; rightNode != row; rightNode = rightNode.right)
+        for(Node* temp = nn->right; temp != nn; temp = temp->right)
         {
-            // 
+            temp->down->up = temp->up;
+            temp->up->down = temp->down;
+            temp->head->size--;
         }
     }
 }
@@ -51,5 +54,17 @@ void dancingLink::cover(struct Node *targetNode)
 */
 void dancingLink::uncover(struct Node *targetNode)
 {
-    // Write code here
+    for(Node* nn = targetNode->up; nn != targetNode; nn = nn->up)
+    {
+        for(Node* temp = nn->left; temp != nn; temp = temp->left)
+        {
+            temp->head->size++;
+            temp->down->up = temp;
+            temp->up->down = temp;
+        }
+    }
+
+    // Reset the pointer to targetNode from the left and right
+    targetNode->left->right = targetNode;
+    targetNode->right->left = targetNode;
 }

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "tile.h"
-#include "column.h"
 #include "row.h"
 #include "grid.h"
 
@@ -9,19 +8,17 @@
 #define _DANCINGLINK_H_
 
 
-struct Node
-{
-    public: 
-        struct Node *left;
-        struct Node *right;
-        struct Node *up;
-        struct Node *down;
-        struct Node *column;
+struct Node{
+    /* Pointers for each direction */
+    struct Node *left;
+    struct Node *right;
+    struct Node *up;
+    struct Node *down;
+    struct Node *head;  // Node used at the moment
 
-        // Unsure if we need the following items below, keep for now
-        // int rowID; 
-        // int colID;
-        // int nodeCount;
+    int size;       // Size of the 
+    int rowID[3];   // Used to identify row in order to map solutions to sudoku grid
+    // rowID = (Candidate, Row, Column)
 };
 
 class dancingLink
