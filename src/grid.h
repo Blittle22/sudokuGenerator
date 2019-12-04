@@ -11,9 +11,7 @@ public:
     ~Grid();
     Row getRow(int);
     void addRow(int);
-    void setRow(int,Row);
-    void build(int);
-    void fill();
+    void buildAndFill(int);
 
 private:
     friend class Row;

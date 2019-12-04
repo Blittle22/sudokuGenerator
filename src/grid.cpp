@@ -1,4 +1,6 @@
 #include "grid.h"
+#include <stdlib.h>
+#include <time.h>
 
 //Constructor
 Grid::Grid(){};
@@ -16,23 +18,16 @@ Row Grid::getRow(int index){
     return rows.at(index);
 };
 
-//setRow
-void Grid::setRow(int index, Row values){
-    values = this->getRow(index);
-};
-
-//build
-void Grid::build(int dimension){
-    for(size_t i = 0; i < dimension; i++){
-        this->addRow(dimension);
+//build & fill
+void Grid::buildAndFill(int dimension){
+    srand(time(NULL));
+    Row values();
+    Tile value();
+    for(size_t i = 1; i < dimension + 1; i++){
+        for(size_t j = 1; j < dimension + 1; j++){
+            int randomNumber = rand() % 9 + j;
+            value.set(randomNumber);
+            values[i][j] = value;
+        }
     }
-};
-
-//Fill
-void Grid::fill(){
-    int value {0};
-    for (size_t i = 0; i < rows.size(); i++){
-        
-    }
-    
 };
