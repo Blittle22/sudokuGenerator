@@ -31,7 +31,7 @@ class dancingLink
     public:
         Link();                                 // Contstructor
         ~Link();                                // Destructor
-        void cover(struct Node *targetNode);    // Function to cover, or delete the pointers to nodes 
+        void cover(struct Node *targetNode);    // Function to cover, or "delete" the pointers to nodes 
         void uncover(struct Node *targetNode);  // Funtion to uncover, or reinsert the nodes
     
     private:
