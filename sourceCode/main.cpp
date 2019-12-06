@@ -14,14 +14,16 @@ int main()
     int array[rows][columns];
     
     srand(time(NULL));
-    cout<< setfill('-') << setw(5) << endl;
     for(int i=0; i < rows; i++){
         for(int j=0; j < columns; j++){
             int random = rand() % 9 + 1;
             array[i][j] = random;
-            cout<<array[i][j];
+            cout<<'|'<<array[i][j];
+            if(j == columns - 1){
+                cout<<'|'<<setfill('-')<<setw(40)<<endl;
+            }
         }
-        cout<<endl;
+        cout<< endl;
     }
     return 0;
 }
