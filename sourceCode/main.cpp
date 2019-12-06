@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
@@ -13,6 +14,7 @@ int main()
     int array[rows][columns];
     
     srand(time(NULL));
+    cout<< setfill('-') << setw(5) << endl;
     for(int i=0; i < rows; i++){
         for(int j=0; j < columns; j++){
             int random = rand() % 9 + 1;
