@@ -1,13 +1,15 @@
 #include "dancingLink.h"
 
+using namespace std;
+
 /* CONSTRUCTOR  
     This function will "create" the sudoku matrix
     Call another function within this one to already have the 
     matrix created - Brandon will be doing this
 */
-dancingLink::Link()
+dancingLink::dancingLink()
 {
-    // insert build() function here
+    // insert build() function here (if there is one, fine if not!)
 }
 
 /* DESTRUCTOR
@@ -15,9 +17,9 @@ dancingLink::Link()
     Call another destructor/deletion function (so we don't have to write
     extra code).
 */
-dancingLink::~Link()
+dancingLink::~dancingLink()
 {
-    // 
+    // insert delete() function here (if there is one, totally fine if not)
 }
 
 /* COVER
@@ -26,16 +28,14 @@ dancingLink::~Link()
     from other nodes. This process is similar to removing the node from
     a doubly linked list. 
 */
-void dancingLink::cover(struct Node *targetNode)
+void dancingLink::cover(Node *targetNode)
 {
-    struct Node column = dataNode.column;
-    struct Node row = dataNode.row;
-
     // Make the pointer skip the target node being input from the right and left
     targetNode->left->right = targetNode->right; 
     targetNode->right->left = targetNode->left;
 
-    for(Node* nn = targetNode->down; nn != targetNode; nn = nn->down)
+
+    for(Node *nn = targetNode->down; nn != targetNode; nn = nn->down)
     {
         for(Node* temp = nn->right; temp != nn; temp = temp->right)
         {

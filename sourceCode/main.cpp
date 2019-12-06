@@ -1,11 +1,3 @@
-#include <iostream>
-#include "tile.h"
-#include "column.h"
-#include "row.h"
-#include "grid.h"
-
-using namespace std;
-
 /* Making a Dancing Link Technique for the Sudoku Generator 
 
     This technique relies on the idea of a doubly circular linked list
@@ -21,12 +13,28 @@ using namespace std;
     information you need to add it back to the linked list.
 */
 
+#include <iostream>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>
+
+using namespace std;
+
 int main()
 {
-
-
-
-
+    int columns = 9;
+    int rows = 9;
+    int array[rows][columns];
+    
+    srand(time(NULL));
+    for(int i=0; i < rows; i++){
+        for(int j=0; j < columns; j++){
+            int random = rand() % 9 + 1;
+            array[i][j] = random;
+            cout<<array[i][j];
+        }
+        cout<<endl;
+    }
 
     return 0;
-};
+}
